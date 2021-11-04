@@ -26,7 +26,4 @@
       <Name>BankClassLibrary</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="TransactorTests.cs" />
-  </ItemGroup>
 </Project>
