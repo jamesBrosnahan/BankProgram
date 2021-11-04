@@ -6,7 +6,7 @@ namespace BankClassLibrary
 {
     public class Account
     {
-        public string name;
+        public string owner;
         public float balance;
     }
 }
