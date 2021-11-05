@@ -14,7 +14,13 @@ namespace BankClassLibrary
 
         public static bool Withdrawal(Account account, float amount)
         {
-            if(account.GetType().Equals(typeof(IndividualInvestmentAccount)) && amount > 500)
+            account.balance -= amount;
+            return true;
+        }
+
+        public static bool Withdrawal(IndividualInvestmentAccount account, float amount)
+        {
+            if (amount > 500)
             {
                 return false;
             }
@@ -26,6 +32,17 @@ namespace BankClassLibrary
         {
             bool withdrawal = Transactor.Withdrawal(SenderAccount, amount);
             if(withdrawal == false)
+            {
+                return false;
+            }
+            Transactor.Deposit(ReceiverAccount, amount);
+            return true;
+        }
+
+        public static bool Transfer(IndividualInvestmentAccount SenderAccount, Account ReceiverAccount, float amount)
+        {
+            bool withdrawal = Transactor.Withdrawal(SenderAccount, amount);
+            if (withdrawal == false)
             {
                 return false;
             }
